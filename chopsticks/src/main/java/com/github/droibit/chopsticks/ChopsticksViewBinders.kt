@@ -27,7 +27,7 @@ private class UnbindableLazy<T : View>(private @IdRes val id: Int,
 
 interface Binder<T> {
     fun <V : View> T.bindView(@IdRes id: Int): Lazy<V>
-    fun unbind()
+    fun unbindViews()
 }
 
 class ActivityBinder : Binder<Activity> {
@@ -37,7 +37,7 @@ class ActivityBinder : Binder<Activity> {
     override fun <V : View> Activity.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, { id -> findViewById(id) }, cache)
 
-    override fun unbind() = cache.clear()
+    override fun unbindViews() = cache.clear()
 }
 
 class FragmentBinder : Binder<Fragment> {
@@ -47,7 +47,7 @@ class FragmentBinder : Binder<Fragment> {
     override fun <V : View> Fragment.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, { id -> view?.findViewById(id) }, cache)
 
-    override fun unbind() = cache.clear()
+    override fun unbindViews() = cache.clear()
 }
 
 class SupportFragmentBinder : Binder<SupportFragment> {
@@ -57,7 +57,7 @@ class SupportFragmentBinder : Binder<SupportFragment> {
     override fun <V : View> SupportFragment.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, { id -> view?.findViewById(id) }, cache)
 
-    override fun unbind() = cache.clear()
+    override fun unbindViews() = cache.clear()
 }
 
 class ViewBinder : Binder<View> {
@@ -67,7 +67,7 @@ class ViewBinder : Binder<View> {
     override fun <V : View> View.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, { id -> findViewById(id) }, cache)
 
-    override fun unbind() = cache.clear()
+    override fun unbindViews() = cache.clear()
 }
 
 class ViewHolderBinder : Binder<ViewHolder> {
@@ -77,5 +77,5 @@ class ViewHolderBinder : Binder<ViewHolder> {
     override fun <V : View> ViewHolder.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, { id -> itemView.findViewById(id) }, cache)
 
-    override fun unbind() = cache.clear()
+    override fun unbindViews() = cache.clear()
 }

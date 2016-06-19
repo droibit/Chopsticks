@@ -40,7 +40,7 @@ class ChopsticksViewBindersTest : AndroidTestCase() {
 
         val newTextView = makeTextView(0).apply {
             layout.removeAllViews()
-            layout.unbind()
+            layout.unbindViews()
             layout.addView(this)
         }
         assertNotNull(layout.view)
