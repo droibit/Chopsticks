@@ -23,7 +23,7 @@ private class UnbindableLazy<out T : View>(private @IdRes val id: Int,
             }
         }
 
-    override fun isInitialized() = cache.get(id) != null
+    override fun isInitialized() = cache.indexOfKey(id) > 0
 }
 
 interface Binder<in T> {
