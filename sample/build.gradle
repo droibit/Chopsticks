@@ -28,7 +28,12 @@ android {
 }
 
 dependencies {
+    compile project(":chopsticks")
+    compile project(":chopsticks-preference")
+
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    compile "com.android.support:preference-v14:$supportLibraryVersion"
 }
 
