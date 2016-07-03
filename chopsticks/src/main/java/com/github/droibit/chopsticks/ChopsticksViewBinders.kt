@@ -9,23 +9,24 @@ import android.view.View
 
 import android.support.v4.app.Fragment as SupportFragment
 
-private class UnbindableLazy<T : View>(private @IdRes val id: Int,
-                                       private val finder: (Int) -> View?,
-                                       private val cache: SparseArray<View>) : Lazy<T> {
+private class UnbindableLazy<out T : View>(private @IdRes val id: Int,
+                                           private val finder: (Int) -> View?,
+                                           private val cache: SparseArray<View>) : Lazy<T> {
 
     @Suppress("UNCHECKED_CAST")
     override val value: T
         get() {
-            if (isInitialized()) {
-                return cache.get(id) as T
+            return if (isInitialized()) {
+                cache.get(id) as T
+            } else {
+                requireNotNull(finder(id)).apply { cache.put(id, this) } as T
             }
-            return requireNotNull(finder(id)).apply { cache.put(id, this) } as T
         }
 
     override fun isInitialized() = cache.get(id) != null
 }
 
-interface Binder<T> {
+interface Binder<in T> {
     fun <V : View> T.bindView(@IdRes id: Int): Lazy<V>
     fun unbindViews()
 }
