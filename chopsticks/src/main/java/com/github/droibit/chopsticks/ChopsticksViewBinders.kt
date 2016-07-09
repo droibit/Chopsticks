@@ -45,7 +45,7 @@ private class UnbindableLazyList<out T : View>(private val ids: IntArray,
             }
         }
 
-    override fun isInitialized() = ids.firstOrNull { cache.indexOfKey(it) > 0 } != null
+    override fun isInitialized() = ids.any { cache.indexOfKey(it) > 0 }
 }
 
 interface Binder<in T> {
