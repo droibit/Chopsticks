@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Chopsticks Sample</string>
 
+    <!-- Content List -->
+
     <string-array name="main_list_items">
         <item>View Binding</item>
         <item>Preference Binding</item>
+    </string-array>
+
+    <string-array name="view_list_items">
+        <item>Activity</item>
+        <item>Fragment(retain)</item>
     </string-array>
 
     <string-array name="prefs_list_items">
@@ -13,6 +20,13 @@
         <item>Preference Fragment v7</item>
         <item>Preference Fragment v14</item>
     </string-array>
+
+    <!-- Views -->
+
+    <string name="bind_activity_text">Hello, bindView by Activity</string>
+    <string name="bind_activity_button_say_hello">Say Hello</string>
+
+    <string name="bind_fragment_text">Hello, bindView by Fragment</string>
 
     <!-- Preferences -->
 

@@ -18,8 +18,8 @@ class SettingsFragmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings_fragment)
 
-        fragmentManager.beginTransaction().apply {
-            replace(android.R.id.content, SettingsFragment())
-        }.commit()
+        fragmentManager.beginTransaction()
+                .replace(android.R.id.content, SettingsFragment())
+                .commit()
     }
 }

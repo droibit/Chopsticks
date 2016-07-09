@@ -15,6 +15,23 @@
             </intent-filter>
         </activity>
 
+        <!-- View -->
+
+        <activity
+            android:name=".view.ViewListActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".view.BindViewActivity"
+            android:exported="false"
+            android:parentActivityName=".view.ViewListActivity" />
+
+        <activity
+            android:name=".view.BindViewFragmentActivity"
+            android:exported="false"
+            android:parentActivityName=".view.ViewListActivity" />
+
         <!-- Preferences -->
 
         <activity

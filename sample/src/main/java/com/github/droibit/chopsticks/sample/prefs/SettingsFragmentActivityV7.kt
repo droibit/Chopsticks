@@ -18,8 +18,8 @@ class SettingsFragmentActivityV7 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings_fragment)
 
-        supportFragmentManager.beginTransaction().apply {
-            replace(android.R.id.content, SettingsFragmentV7())
-        }.commit()
+        supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, SettingsFragmentV7())
+                .commit()
     }
 }
