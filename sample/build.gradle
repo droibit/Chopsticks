@@ -10,7 +10,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.github.droibit.chopsticks.sample"
+        applicationId "com.github.droibit.chopstick.sample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -28,8 +28,8 @@ android {
 }
 
 dependencies {
-    compile project(":chopsticks")
-    compile project(":chopsticks-preference")
+    compile project(':chopstick')
+    compile project(':chopstick-preference')
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "com.android.support:appcompat-v7:$supportLibraryVersion"

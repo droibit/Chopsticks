@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.droibit.chopsticks.sample">
+    package="com.github.droibit.chopstick.sample">
 
     <application
         android:allowBackup="true"
@@ -44,7 +44,7 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".prefs.SettingsActivityCompat"
+            android:name="com.github.droibit.chopstick.sample.prefs.SettingsActivityCompat"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity
