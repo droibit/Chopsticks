@@ -1,16 +1,17 @@
 # Chopsticks
 
-[![Build Status](https://travis-ci.org/droibit/Chopsticks.svg?branch=develop)](https://travis-ci.org/droibit/chopsticks) [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/droibit/chopstics/blob/develop/LICENSE) [![jitpack.io](https://jitpack.io/v/droibit/Chopsticks.svg)](https://jitpack.io/#droibit/chopsticks)
+[![Build Status](https://travis-ci.org/droibit/Chopsticks.svg?branch=develop)](https://travis-ci.org/droibit/chopsticks) [![jitpack.io](https://jitpack.io/v/droibit/chopsticks.svg)](https://jitpack.io/#droibit/chopsticks) [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/droibit/chopstics/blob/develop/LICENSE)
 
-View and Preference injection library like [Kotter Knife](https://github.com/JakeWharton/kotterknife).
+View, resource and preference injection library like [Kotter Knife](https://github.com/JakeWharton/kotterknife).
 
-#### View
+#### View, Resource
 
 ```kotlin
 class BindViewActivity : AppCompatActivity() {
 
-    val textView: TextView by bindView(android.R.id.text1)
-    val button: Button by bindView(android.R.id.button1)
+    private val textView: TextView by bindView(android.R.id.text1)
+    private val button: Button by bindView(android.R.id.button1)
+    private val toastMessage: String by bindString(R.string.toast_message)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +19,7 @@ class BindViewActivity : AppCompatActivity() {
 
         textView.text = "Hello, bindView"
         button.setOnClickListener {
-            Toast.makeText(this@BindViewActivity, "Hello, bindView", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@BindViewActivity, toastMessage, Toast.LENGTH_SHORT).show()
         }
     }
 }
@@ -37,8 +38,8 @@ And, it is also support unbind of view.
 ```kotlin
 class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentBinder() {
 
-    val textView: TextView by bindView(android.R.id.text1)
-    val button: Button by bindView(android.R.id.button1)
+    private val textView: TextView by bindView(android.R.id.text1)
+    private val button: Button by bindView(android.R.id.button1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,9 +106,10 @@ repositories {
 }
 
 dependencies {
-    compile "com.github.droibit.chopsticks:chopstick:0.3.0"
+    compile "com.github.droibit.chopsticks:chopstick:0.4.0"
+    compile "com.github.droibit.chopsticks:chopstick-resource:0.4.0"
     // If 'support-preference' is not required, to exclude 'preference-v7' and 'preference-v14'.
-    compile "com.github.droibit.chopsticks:chopstick-preference:0.3.0"
+    compile "com.github.droibit.chopsticks:chopstick-preference:0.4.0"
 }
 ```
 
