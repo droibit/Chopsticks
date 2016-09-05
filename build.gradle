@@ -2,7 +2,7 @@
 
 buildscript {
     ext {
-        supportLibraryVersion = '23.4.0'
+        supportLibraryVersion = '24.2.0'
         kotlinVersion = '1.0.3'
     }
     repositories {
@@ -26,11 +26,11 @@ task clean(type: Delete) {
 }
 
 ext {
-    compileSdkVersion = 23
-    buildToolsVersion = '23.0.3'
+    compileSdkVersion = 24
+    buildToolsVersion = '24.0.2'
 
     minSdkVersion = 16
-    targetSdkVersion = 23
+    targetSdkVersion = 24
     versionCode = 5
     versionName = "0.3.1"
 }
