@@ -36,6 +36,16 @@ class ChopstickResourceTest {
     }
 
     @Test
+    fun bindBool() {
+        class TestView(context: Context) : View(context) {
+            val testBool: Boolean by bindBoolean(R.bool.test_bool)
+        }
+
+        val view = TestView(context)
+        assertEquals(view.testBool, context.resources.getBoolean(R.bool.test_bool))
+    }
+
+    @Test
     fun bindStringArray() {
         class TestView(context: Context) : View(context) {
             val testArray: Array<String> by bindStringArray(R.array.test_string_array)

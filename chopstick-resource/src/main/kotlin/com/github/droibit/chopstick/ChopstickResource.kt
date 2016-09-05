@@ -3,6 +3,7 @@ package com.github.droibit.chopstick
 import android.app.Activity
 import android.app.Fragment
 import android.support.annotation.ArrayRes
+import android.support.annotation.BoolRes
 import android.support.annotation.ColorRes
 import android.support.annotation.StringRes
 import android.support.v4.content.ContextCompat
@@ -18,6 +19,11 @@ fun Activity.bindColor(@ColorRes resId: Int) = lazy { ContextCompat.getColor(thi
 fun Fragment.bindColor(@ColorRes resId: Int) = lazy { ContextCompat.getColor(activity, resId) }
 fun SupportFragment.bindColor(@ColorRes resId: Int) = lazy { ContextCompat.getColor(context, resId) }
 fun View.bindColor(@ColorRes resId: Int) = lazy { ContextCompat.getColor(context, resId) }
+
+fun Activity.bindBoolean(@BoolRes resId: Int) = lazy { resources.getBoolean(resId) }
+fun Fragment.bindBoolean(@BoolRes resId: Int) = lazy { resources.getBoolean(resId) }
+fun SupportFragment.bindBoolean(@BoolRes resId: Int) = lazy { resources.getBoolean(resId) }
+fun View.bindBoolean(@BoolRes resId: Int) = lazy { context.resources.getBoolean(resId) }
 
 fun Activity.bindStringArray(@ArrayRes resId: Int) = lazy { resources.getStringArray(resId) }
 fun Fragment.bindStringArray(@ArrayRes resId: Int) = lazy { resources.getStringArray(resId) }
