@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="test_int_array" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+
+    <string-array name="test_string_array" translatable="false">
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+    </string-array>
+</resources>

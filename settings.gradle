@@ -1,1 +1,1 @@
-include ':sample', ':chopstick', ':chopstick-preference'
+include ':sample', ':chopstick', ':chopstick-preference', ':chopstick-resource'
