@@ -1,14 +1,23 @@
 package com.github.droibit.chopstick
 
 import android.content.Context
-import android.test.AndroidTestCase
+import android.support.test.InstrumentationRegistry
+import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Test
+import org.junit.runner.RunWith
 
-class ChopsticksViewTest : AndroidTestCase() {
+@RunWith(AndroidJUnit4::class)
+class ChopsticksViewTest {
 
-    fun test_bindView() {
+    private val context = InstrumentationRegistry.getContext()
+
+    @Test
+    fun bindView() {
         class TestLayout(context: Context) : FrameLayout(context) {
             val view: View by bindView(0)
             val textView: TextView by bindView(1)
@@ -26,7 +35,8 @@ class ChopsticksViewTest : AndroidTestCase() {
         assertEquals(layout.textView.id, 1)
     }
 
-    fun test_bindView_notFound() {
+    @Test
+    fun bindView_notFound() {
         class TestLayout(context: Context) : FrameLayout(context) {
             val view: View by bindView(0)
         }
@@ -40,7 +50,8 @@ class ChopsticksViewTest : AndroidTestCase() {
         }
     }
 
-    fun test_bindViews() {
+    @Test
+    fun bindViews() {
         class TestLayout(context: Context) : FrameLayout(context) {
             val textViews: List<TextView> by bindViews(0, 1, 2)
         }
@@ -56,7 +67,8 @@ class ChopsticksViewTest : AndroidTestCase() {
         layout.textViews.forEachIndexed { i, textView -> assertEquals(textView.id, i) }
     }
 
-    fun test_bindViews_notFound() {
+    @Test
+    fun bindViews_notFound() {
         class TestLayout(context: Context) : FrameLayout(context) {
             val textViews: List<TextView> by bindViews(0, 1, 2)
         }
@@ -70,7 +82,8 @@ class ChopsticksViewTest : AndroidTestCase() {
         }
     }
 
-    fun test_bindViews_emptyIds() {
+    @Test
+    fun bindViews_emptyIds() {
         class TestLayout(context: Context) : FrameLayout(context) {
             val textViews: List<TextView> by bindViews()
         }

@@ -1,22 +1,30 @@
 package com.github.droibit.chopstick
 
 import android.content.Context
-import android.test.AndroidTestCase
+import android.support.test.InstrumentationRegistry
+import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
+import org.junit.Assert.*
+import org.junit.Test
+import org.junit.runner.RunWith
 
-class ChopsticksViewBindersTest : AndroidTestCase() {
+@RunWith(AndroidJUnit4::class)
+class ChopsticksViewBindersTest {
 
-    fun test_bindView() {
+    private val context = InstrumentationRegistry.getContext()
+
+    @Test
+    fun bindView() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val view: View by bindView(0)
             val textView: TextView by bindView(1)
         }
 
         val layout = TestLayout(context).apply {
-            addView(makeView(id=0))
-            addView(makeTextView(id=1))
+            addView(makeView(id = 0))
+            addView(makeTextView(id = 1))
         }
 
         assertNotNull(layout.view)
@@ -26,7 +34,8 @@ class ChopsticksViewBindersTest : AndroidTestCase() {
         assertEquals(layout.textView.id, 1)
     }
 
-    fun test_bindView_notFound() {
+    @Test
+    fun bindView_notFound() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val view: View by bindView(0)
         }
@@ -39,7 +48,9 @@ class ChopsticksViewBindersTest : AndroidTestCase() {
             assertEquals(e.message, "Not found view by id(0).")
         }
     }
-    fun test_bindViews() {
+
+    @Test
+    fun bindViews() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val textViews: List<TextView> by bindViews(0, 1, 2)
         }
@@ -55,7 +66,8 @@ class ChopsticksViewBindersTest : AndroidTestCase() {
         layout.textViews.forEachIndexed { i, textView -> assertEquals(textView.id, i) }
     }
 
-    fun test_bindViews_notFound() {
+    @Test
+    fun bindViews_notFound() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val textViews: List<TextView> by bindViews(0, 1, 2)
         }
@@ -69,7 +81,8 @@ class ChopsticksViewBindersTest : AndroidTestCase() {
         }
     }
 
-    fun test_bindViews_emptyIds() {
+    @Test
+    fun bindViews_emptyIds() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val textViews: List<TextView> by bindViews()
         }
@@ -83,11 +96,13 @@ class ChopsticksViewBindersTest : AndroidTestCase() {
         }
     }
 
-    fun test_unbindViews() {
+    @Test
+    fun unbindViews() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val view: View by bindView(0)
             val views: List<TextView> by bindViews(1, 2)
         }
+
         val layout = TestLayout(context)
 
         val oldTextView_0 = makeView(0).apply { layout.addView(this) }
