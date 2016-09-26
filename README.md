@@ -1,6 +1,6 @@
 # Chopsticks
 
-[![Build Status](https://travis-ci.org/droibit/Chopsticks.svg?branch=develop)](https://travis-ci.org/droibit/chopsticks) [![jitpack.io](https://jitpack.io/v/droibit/chopsticks.svg)](https://jitpack.io/#droibit/chopsticks) [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/droibit/chopstics/blob/develop/LICENSE)
+[![Build Status](https://travis-ci.org/droibit/chopsticks.svg?branch=develop)](https://travis-ci.org/droibit/chopsticks) [![jitpack.io](https://jitpack.io/v/droibit/chopsticks.svg)](https://jitpack.io/#droibit/chopsticks) [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/droibit/chopstics/blob/develop/LICENSE)
 
 View, resource and preference injection library like [Kotter Knife](https://github.com/JakeWharton/kotterknife).
 
