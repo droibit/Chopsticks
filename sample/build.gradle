@@ -30,6 +30,7 @@ android {
 dependencies {
     compile project(':chopstick')
     compile project(':chopstick-preference')
+    compile project(':chopstick-resource')
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "com.android.support:appcompat-v7:$supportLibraryVersion"
