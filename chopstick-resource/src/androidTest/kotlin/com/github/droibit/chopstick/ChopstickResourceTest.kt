@@ -46,6 +46,16 @@ class ChopstickResourceTest {
     }
 
     @Test
+    fun bindInt() {
+        class TestView(context: Context) : View(context) {
+            val testInt: Int by bindInt(R.integer.test_int)
+        }
+
+        val view = TestView(context)
+        assertEquals(view.testInt, context.resources.getInteger(R.integer.test_int))
+    }
+
+    @Test
     fun bindStringArray() {
         class TestView(context: Context) : View(context) {
             val testArray: Array<String> by bindStringArray(R.array.test_string_array)

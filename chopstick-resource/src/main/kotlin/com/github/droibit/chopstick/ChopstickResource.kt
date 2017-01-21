@@ -22,6 +22,11 @@ fun Fragment.bindBoolean(@BoolRes resId: Int) = lazy { resources.getBoolean(resI
 fun SupportFragment.bindBoolean(@BoolRes resId: Int) = lazy { resources.getBoolean(resId) }
 fun View.bindBoolean(@BoolRes resId: Int) = lazy { context.resources.getBoolean(resId) }
 
+fun Activity.bindInt(@IntegerRes resId: Int) = lazy { resources.getInteger(resId) }
+fun Fragment.bindInt(@IntegerRes resId: Int) = lazy { resources.getInteger(resId) }
+fun SupportFragment.bindInt(@IntegerRes resId: Int) = lazy { resources.getInteger(resId) }
+fun View.bindInt(@IntegerRes resId: Int) = lazy { resources.getInteger(resId) }
+
 fun Activity.bindStringArray(@ArrayRes resId: Int) = lazy { resources.getStringArray(resId) }
 fun Fragment.bindStringArray(@ArrayRes resId: Int) = lazy { resources.getStringArray(resId) }
 fun SupportFragment.bindStringArray(@ArrayRes resId: Int) = lazy { resources.getStringArray(resId) }
