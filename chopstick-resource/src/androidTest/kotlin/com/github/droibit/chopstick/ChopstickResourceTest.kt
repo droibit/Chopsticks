@@ -5,7 +5,7 @@ import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import android.support.v4.content.ContextCompat
 import android.view.View
-import com.github.droibit.chopstick.test.R
+import com.github.droibit.chopstick.resource.test.R
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -63,5 +63,26 @@ class ChopstickResourceTest {
 
         val view = TestView(context)
         assertArrayEquals(view.testArray, context.resources.getIntArray(R.array.test_int_array))
+    }
+
+    @Test
+    fun bindDimension() {
+        class TestView(context: Context) : View(context) {
+            val testDimension: Float by bindDimension(R.dimen.test_dimen)
+        }
+
+        val view = TestView(context)
+        assertEquals(view.testDimension, context.resources.getDimension(R.dimen.test_dimen))
+    }
+
+    @Test
+    fun bindDimensionPixel() {
+        class TestView(context: Context) : View(context) {
+            val testDimensionPixel: Int by bindDimensionPixel(R.dimen.test_dimen)
+        }
+
+        val view = TestView(context)
+        assertEquals(view.testDimensionPixel,
+                context.resources.getDimensionPixelSize(R.dimen.test_dimen))
     }
 }

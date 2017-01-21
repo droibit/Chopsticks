@@ -2,10 +2,7 @@ package com.github.droibit.chopstick
 
 import android.app.Activity
 import android.app.Fragment
-import android.support.annotation.ArrayRes
-import android.support.annotation.BoolRes
-import android.support.annotation.ColorRes
-import android.support.annotation.StringRes
+import android.support.annotation.*
 import android.support.v4.content.ContextCompat
 import android.view.View
 import android.support.v4.app.Fragment as SupportFragment
@@ -34,3 +31,13 @@ fun Activity.bindIntArray(@ArrayRes resId: Int) = lazy { resources.getIntArray(r
 fun Fragment.bindIntArray(@ArrayRes resId: Int) = lazy { resources.getIntArray(resId) }
 fun SupportFragment.bindIntArray(@ArrayRes resId: Int) = lazy { resources.getIntArray(resId) }
 fun View.bindIntArray(@ArrayRes resId: Int) = lazy { resources.getIntArray(resId) }
+
+fun Activity.bindDimension(@DimenRes resId: Int) = lazy { resources.getDimension(resId) }
+fun Fragment.bindDimension(@DimenRes resId: Int) = lazy { resources.getDimension(resId) }
+fun SupportFragment.bindDimension(@DimenRes resId: Int) = lazy { resources.getDimension(resId) }
+fun View.bindDimension(@DimenRes resId: Int) = lazy { resources.getDimension(resId) }
+
+fun Activity.bindDimensionPixel(@DimenRes resId: Int) = lazy { resources.getDimensionPixelSize(resId) }
+fun Fragment.bindDimensionPixel(@DimenRes resId: Int) = lazy { resources.getDimensionPixelSize(resId) }
+fun SupportFragment.bindDimensionPixel(@DimenRes resId: Int) = lazy { resources.getDimensionPixelSize(resId) }
+fun View.bindDimensionPixel(@DimenRes resId: Int) = lazy { resources.getDimensionPixelSize(resId) }
