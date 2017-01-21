@@ -28,7 +28,6 @@ class BindViewActivity : AppCompatActivity() {
 View injection to support the following classes.
 
 * Activity
-* Fragment
 * SupportFragment
 * ViewHolder
 * View

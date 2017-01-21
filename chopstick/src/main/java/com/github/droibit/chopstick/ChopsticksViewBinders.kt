@@ -1,7 +1,6 @@
 package com.github.droibit.chopstick
 
 import android.app.Activity
-import android.app.Fragment
 import android.support.annotation.IdRes
 import android.support.v7.widget.RecyclerView.ViewHolder
 import android.util.SparseArray
@@ -62,19 +61,6 @@ class ActivityBinder : Binder<Activity> {
             = UnbindableLazy(id, cache, viewFinder)
 
     override fun <V : View> Activity.bindViews(vararg ids: Int): Lazy<List<V>>
-            = UnbindableLazyList(ids, cache, viewFinder)
-
-    override fun unbindViews() = cache.clear()
-}
-
-class FragmentBinder : Binder<Fragment> {
-
-    private val cache = SparseArray<View>()
-
-    override fun <V : View> Fragment.bindView(@IdRes id: Int): Lazy<V>
-            = UnbindableLazy(id, cache, viewFinder)
-
-    override fun <V : View> Fragment.bindViews(vararg ids: Int): Lazy<List<V>>
             = UnbindableLazyList(ids, cache, viewFinder)
 
     override fun unbindViews() = cache.clear()
