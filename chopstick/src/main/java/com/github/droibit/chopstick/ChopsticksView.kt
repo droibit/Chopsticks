@@ -28,17 +28,13 @@ fun <V : View> ViewHolder.bindViews(vararg ids: Int): Lazy<List<V>>
 fun <V : View> View.bindViews(vararg ids: Int): Lazy<List<V>>
         = requiredLazy(ids) { findViewById(it) }
 
-internal val Activity.viewFinder: (Int) -> View?
-    get() = { findViewById(it) }
+internal val Activity.viewFinder: (Int) -> View? get() = { findViewById(it) }
 
-internal val SupportFragment.viewFinder: (Int) -> View?
-    get() = { view?.findViewById(it) }
+internal val SupportFragment.viewFinder: (Int) -> View? get() = { view?.findViewById(it) }
 
-internal val ViewHolder.viewFinder: (Int) -> View?
-    get() = { itemView.findViewById(it) }
+internal val ViewHolder.viewFinder: (Int) -> View? get() = { itemView.findViewById(it) }
 
-internal val View.viewFinder: (Int) -> View?
-    get() = { findViewById(it) }
+internal val View.viewFinder: (Int) -> View? get() = { findViewById(it) }
 
 @Suppress("UNCHECKED_CAST")
 private inline fun <V : View> requiredLazy(id: Int, crossinline finder: (Int) -> View?)

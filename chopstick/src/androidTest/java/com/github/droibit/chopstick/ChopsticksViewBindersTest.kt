@@ -34,18 +34,14 @@ class ChopsticksViewBindersTest {
         assertEquals(layout.textView.id, 1)
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException::class)
     fun bindView_notFound() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val view: View by bindView(0)
         }
 
-        try {
-            TestLayout(context).apply {
-                view.isEnabled = false
-            }
-        } catch (e: IllegalArgumentException) {
-            assertEquals(e.message, "Not found view by id(0).")
+        TestLayout(context).apply {
+            view.isEnabled = false
         }
     }
 
@@ -66,33 +62,25 @@ class ChopsticksViewBindersTest {
         layout.textViews.forEachIndexed { i, textView -> assertEquals(textView.id, i) }
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException::class)
     fun bindViews_notFound() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val textViews: List<TextView> by bindViews(0, 1, 2)
         }
 
-        try {
-            TestLayout(context).apply {
-                textViews[0].isEnabled = false
-            }
-        } catch (e: IllegalArgumentException) {
-            assertEquals(e.message, "Not found view by id(0).")
+        TestLayout(context).apply {
+            textViews[0].isEnabled = false
         }
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException::class)
     fun bindViews_emptyIds() {
         class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
             val textViews: List<TextView> by bindViews()
         }
 
-        try {
-            TestLayout(context).apply {
-                textViews[0].isEnabled = false
-            }
-        } catch (e: IllegalArgumentException) {
-            assertEquals(e.message, "ids size > 0")
+        TestLayout(context).apply {
+            textViews[0].isEnabled = false
         }
     }
 
@@ -135,6 +123,7 @@ class ChopsticksViewBindersTest {
     }
 
     private fun makeView(id: Int) = View(context).apply { setId(id) }
+
     private fun makeTextView(id: Int) = TextView(context).apply { setId(id) }
 }
 

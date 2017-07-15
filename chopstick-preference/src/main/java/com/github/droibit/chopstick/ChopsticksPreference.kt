@@ -8,20 +8,20 @@ import android.support.v14.preference.PreferenceFragment as PreferenceFragmentV1
 import android.support.v7.preference.Preference as PreferenceCompat
 import android.support.v7.preference.PreferenceFragmentCompat
 
-fun <P : android.support.v7.preference.Preference> PreferenceFragmentCompat.bindPreference(@StringRes resId: Int): Lazy<P>
+fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(@StringRes resId: Int): Lazy<P>
         = requireCompat { findPreference(getString(resId)) }
 
-fun <P : android.support.v7.preference.Preference> PreferenceFragmentCompat.bindPreference(key: String): Lazy<P>
+fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(key: String): Lazy<P>
         = requireCompat { findPreference(key) }
 
-fun <P : android.support.v7.preference.Preference> android.support.v14.preference.PreferenceFragment.bindPreference(@StringRes resId: Int): Lazy<P>
+fun <P : PreferenceCompat> PreferenceFragmentV14.bindPreference(@StringRes resId: Int): Lazy<P>
         = requireCompat { findPreference(getString(resId)) }
 
-fun <P : android.support.v7.preference.Preference> android.support.v14.preference.PreferenceFragment.bindPreference(key: String): Lazy<P>
+fun <P : PreferenceCompat> PreferenceFragmentV14.bindPreference(key: String): Lazy<P>
         = requireCompat { findPreference(key) }
 
 @Suppress("UNCHECKED_CAST")
-private inline fun <P : android.support.v7.preference.Preference> requireCompat(crossinline finder: () -> android.support.v7.preference.Preference?)
+private inline fun <P : PreferenceCompat> requireCompat(crossinline finder: () -> PreferenceCompat?)
         = lazy { requireNotNull(finder()) as P }
 
 @Deprecated(

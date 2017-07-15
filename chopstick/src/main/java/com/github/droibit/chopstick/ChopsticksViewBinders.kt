@@ -36,7 +36,7 @@ private class UnbindableLazyList<out T : View>(private val ids: IntArray,
             return if (isInitialized()) {
                 ids.map { cache.get(it) as T }.toList()
             } else {
-                require(ids.size > 0) { "ids size > 0" }
+                require(ids.isNotEmpty()) { "ids size > 0" }
                 ids.map {
                     requireNotNull(finder(it)) { "Not found view by id($it)." }
                             .apply { cache.put(id, this) } as T
@@ -49,7 +49,7 @@ private class UnbindableLazyList<out T : View>(private val ids: IntArray,
 
 interface Binder<in T> {
     fun <V : View> T.bindView(@IdRes id: Int): Lazy<V>
-    fun <V : View> T.bindViews(vararg ids: Int): Lazy<List<V>>
+    fun <V : View> T.bindViews(@IdRes vararg ids: Int): Lazy<List<V>>
     fun unbindViews()
 }
 
@@ -60,7 +60,7 @@ class ActivityBinder : Binder<Activity> {
     override fun <V : View> Activity.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, cache, viewFinder)
 
-    override fun <V : View> Activity.bindViews(vararg ids: Int): Lazy<List<V>>
+    override fun <V : View> Activity.bindViews(@IdRes vararg ids: Int): Lazy<List<V>>
             = UnbindableLazyList(ids, cache, viewFinder)
 
     override fun unbindViews() = cache.clear()
@@ -73,9 +73,8 @@ class SupportFragmentBinder : Binder<SupportFragment> {
     override fun <V : View> SupportFragment.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, cache, viewFinder)
 
-    override fun <V : View> SupportFragment.bindViews(vararg ids: Int): Lazy<List<V>>
+    override fun <V : View> SupportFragment.bindViews(@IdRes vararg ids: Int): Lazy<List<V>>
             = UnbindableLazyList(ids, cache, viewFinder)
-
 
     override fun unbindViews() = cache.clear()
 }
@@ -87,7 +86,7 @@ class ViewBinder : Binder<View> {
     override fun <V : View> View.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, cache, viewFinder)
 
-    override fun <V : View> View.bindViews(vararg ids: Int): Lazy<List<V>>
+    override fun <V : View> View.bindViews(@IdRes vararg ids: Int): Lazy<List<V>>
             = UnbindableLazyList(ids, cache, viewFinder)
 
     override fun unbindViews() = cache.clear()
@@ -100,7 +99,7 @@ class ViewHolderBinder : Binder<ViewHolder> {
     override fun <V : View> ViewHolder.bindView(@IdRes id: Int): Lazy<V>
             = UnbindableLazy(id, cache, viewFinder)
 
-    override fun <V : View> ViewHolder.bindViews(vararg ids: Int): Lazy<List<V>>
+    override fun <V : View> ViewHolder.bindViews(@IdRes vararg ids: Int): Lazy<List<V>>
             = UnbindableLazyList(ids, cache, viewFinder)
 
     override fun unbindViews() = cache.clear()
