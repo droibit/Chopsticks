@@ -1,6 +1,7 @@
 package com.github.droibit.chopstick
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import android.support.v4.content.ContextCompat
@@ -14,6 +15,16 @@ import org.junit.runner.RunWith
 class ChopstickResourceTest {
 
     private val context = InstrumentationRegistry.getContext()
+
+    @Test
+    fun bindDrawable() {
+        class TestView(context: Context) : View(context) {
+            val testDrawable: Drawable by bindDrawable(R.drawable.ic_icon)
+        }
+
+        val view = TestView(context)
+        assertNotNull(view.testDrawable)
+    }
 
     @Test
     fun bindString() {

@@ -6,6 +6,10 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import android.support.v4.app.Fragment as SupportFragment
 
+fun Activity.bindDrawable(@DrawableRes resId: Int) = lazy { ContextCompat.getDrawable(this, resId) }
+fun SupportFragment.bindDrawable(@DrawableRes resId: Int) = lazy { ContextCompat.getDrawable(context, resId) }
+fun View.bindDrawable(@DrawableRes resId: Int) = lazy { ContextCompat.getDrawable(context, resId) }
+
 fun Activity.bindString(@StringRes resId: Int) = lazy { getString(resId) }
 fun SupportFragment.bindString(@StringRes resId: Int) = lazy { getString(resId) }
 fun View.bindString(@StringRes resId: Int) = lazy { context.getString(resId) }
