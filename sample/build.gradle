@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    compile project(':chopstick')
+    compile project(':chopstick-view')
     compile project(':chopstick-preference')
     compile project(':chopstick-resource')
 
