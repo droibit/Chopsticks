@@ -4,26 +4,7 @@
 
 View, resource and preference injection library like [Kotter Knife](https://github.com/JakeWharton/kotterknife).
 
-#### View, Resource
-
-```kotlin
-class BindViewActivity : AppCompatActivity() {
-
-    private val textView: TextView by bindView(android.R.id.text1)
-    private val button: Button by bindView(android.R.id.button1)
-    private val toastMessage: String by bindString(R.string.toast_message)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bind_view)
-
-        textView.text = "Hello, bindView"
-        button.setOnClickListener {
-            Toast.makeText(this@BindViewActivity, toastMessage, Toast.LENGTH_SHORT).show()
-        }
-    }
-}
-```
+#### View
 
 View injection to support the following classes.
 
@@ -32,10 +13,26 @@ View injection to support the following classes.
 * ViewHolder
 * View
 
-And, it is also support unbind of view.
+```kotlin
+class BindViewActivity : AppCompatActivity() {
+
+    private val button: Button by bindView(android.R.id.button1)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_bind_view)
+
+        button.setOnClickListener {
+            Toast.makeText(this@BindViewActivity, "Hello, bindView", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+```
+And, it is also support unbind view.  
 
 ```kotlin
-class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentBinder() {
+// e.g. SupportFragment
+class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentViewBinder() {
 
     private val textView: TextView by bindView(android.R.id.text1)
     private val button: Button by bindView(android.R.id.button1)
@@ -65,9 +62,52 @@ class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentBinder()
 }
 ```
 
-#### Preference
+#### Resource
+
+Resource injection to support the following classes.
+
+* Activity
+* SupportFragment
+* ViewHolder
+* View
 
 ```kotlin
+class BindViewActivity : AppCompatActivity() {
+
+    private val button: Button by bindView(android.R.id.button1)
+    private val toastMessage: String by bindString(R.string.toast_message)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_bind_view)
+
+        button.setOnClickListener {
+            Toast.makeText(this@BindViewActivity, toastMessage, Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+```
+
+Also support class that does not have context.
+
+```kotlin
+class Resources(context: Context) : Binder by ResourceBinder(context) {
+
+    val toastMessage: String by bindString(R.string.toast_message)
+}
+```
+
+#### Preference
+
+Preference injection to support the following classes.
+
+* PreferenceActivity
+* PreferenceFragment
+* PreferenceFragmentCompat(support-preference-v7)
+* PreferenceFragment(support-preference-v14)
+
+```kotlin
+// e.g. PreferenceFragment
 class SettingsFragment: PreferenceFragmentCompat() {
 
     // String resource is Preference key.
@@ -87,14 +127,6 @@ class SettingsFragment: PreferenceFragmentCompat() {
     }
 }
 ```
-
-Preference injection to support the following classes.
-
-* PreferenceActivity
-* PreferenceFragment
-* PreferenceFragmentCompat(support-preference-v7)
-* PreferenceFragment(support-preference-v14)
-
 ## Download
 
 Add the following code to build.gradle.
@@ -105,14 +137,16 @@ repositories {
 }
 
 dependencies {
-    compile "com.github.droibit.chopsticks:chopstick-view:0.8.0"
-    compile "com.github.droibit.chopsticks:chopstick-resource:0.8.0"
-    // If 'support-preference' is not required, to exclude 'preference-v7' and 'preference-v14'.
+    // If you do not need `recyclerview-v7`, you can exclude.
+    compile "com.github.droibit.chopsticks:chopstick-view:0.9.0"
+    compile "com.github.droibit.chopsticks:chopstick-resource:0.9.0"
+
+    // If you do not need 'preference-v7' and 'preference-v14', you can exclude.
     compile "com.github.droibit.chopsticks:chopstick-preference:0.8.0"
 }
 ```
 
-This library is dependent on Kotlin 1.0.3.
+This library is dependent on Kotlin `1.1.3-2`.
 
 ## License
 
