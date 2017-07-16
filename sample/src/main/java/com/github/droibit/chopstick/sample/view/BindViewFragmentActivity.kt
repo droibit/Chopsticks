@@ -12,7 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.github.droibit.chopstick.view.Binder
-import com.github.droibit.chopstick.view.SupportFragmentBinder
+import com.github.droibit.chopstick.view.SupportFragmentViewBinder
 import com.github.droibit.chopstick.sample.R
 
 class BindViewFragmentActivity : AppCompatActivity() {
@@ -35,7 +35,7 @@ class BindViewFragmentActivity : AppCompatActivity() {
     }
 }
 
-class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentBinder() {
+class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentViewBinder() {
 
     private val textView: TextView by bindView(android.R.id.text1)
     private val button: Button by bindView(android.R.id.button1)

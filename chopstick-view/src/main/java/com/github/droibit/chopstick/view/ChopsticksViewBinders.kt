@@ -53,7 +53,7 @@ interface Binder<in T> {
     fun unbindViews()
 }
 
-class ActivityBinder : Binder<Activity> {
+class ActivityViewBinder : Binder<Activity> {
 
     private val cache = SparseArray<View>()
 
@@ -66,7 +66,7 @@ class ActivityBinder : Binder<Activity> {
     override fun unbindViews() = cache.clear()
 }
 
-class SupportFragmentBinder : Binder<SupportFragment> {
+class SupportFragmentViewBinder : Binder<SupportFragment> {
 
     private val cache = SparseArray<View>()
 
@@ -92,7 +92,7 @@ class ViewBinder : Binder<View> {
     override fun unbindViews() = cache.clear()
 }
 
-class ViewHolderBinder : Binder<ViewHolder> {
+class ViewHolderViewBinder : Binder<ViewHolder> {
 
     private val cache = SparseArray<View>()
 
