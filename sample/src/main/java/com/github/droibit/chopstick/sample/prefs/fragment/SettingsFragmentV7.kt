@@ -3,7 +3,7 @@ package com.github.droibit.chopstick.sample.prefs.fragment
 import android.os.Bundle
 import android.support.v7.preference.*
 import android.view.View
-import com.github.droibit.chopstick.bindPreference
+import com.github.droibit.chopstick.preference.bindPreference
 import com.github.droibit.chopstick.sample.R
 
 class SettingsFragmentV7: PreferenceFragmentCompat() {

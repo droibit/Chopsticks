@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.preference.*
-import com.github.droibit.chopstick.bindPreference
+import com.github.droibit.chopstick.preference.bindPreference
 import com.github.droibit.chopstick.sample.R
 
 @Suppress("DEPRECATION")

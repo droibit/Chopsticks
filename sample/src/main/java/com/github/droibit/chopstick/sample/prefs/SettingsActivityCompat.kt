@@ -8,7 +8,7 @@ import android.preference.EditTextPreference
 import android.preference.Preference
 import android.preference.SwitchPreference
 import com.example.android.supportv7.app.AppCompatPreferenceActivity
-import com.github.droibit.chopstick.bindPreference
+import com.github.droibit.chopstick.preference.bindPreference
 import com.github.droibit.chopstick.sample.R
 
 @Suppress("DEPRECATION")

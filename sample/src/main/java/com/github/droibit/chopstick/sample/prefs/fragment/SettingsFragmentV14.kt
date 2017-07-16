@@ -7,7 +7,7 @@ import android.support.v7.preference.CheckBoxPreference
 import android.support.v7.preference.EditTextPreference
 import android.support.v7.preference.Preference
 import android.view.View
-import com.github.droibit.chopstick.bindPreference
+import com.github.droibit.chopstick.preference.bindPreference
 import com.github.droibit.chopstick.sample.R
 
 
