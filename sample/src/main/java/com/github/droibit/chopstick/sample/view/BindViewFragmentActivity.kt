@@ -37,8 +37,8 @@ class BindViewFragmentActivity : AppCompatActivity() {
 
 class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentBinder() {
 
-    val textView: TextView by bindView(android.R.id.text1)
-    val button: Button by bindView(android.R.id.button1)
+    private val textView: TextView by bindView(android.R.id.text1)
+    private val button: Button by bindView(android.R.id.button1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -28,7 +28,7 @@ class ViewListActivity : AppCompatActivity() {
 
         listView.adapter = ArrayAdapter.createFromResource(this, R.array.view_list_items,
                 android.R.layout.simple_list_item_1)
-        listView.setOnItemClickListener { adapterView, view, i, l -> launchActivity(i) }
+        listView.setOnItemClickListener { _, _, i, _ -> launchActivity(position = i) }
     }
 
     private fun launchActivity(position: Int) {

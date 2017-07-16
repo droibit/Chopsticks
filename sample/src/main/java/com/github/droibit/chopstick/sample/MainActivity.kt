@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         listView.adapter = ArrayAdapter.createFromResource(this, R.array.main_list_items,
                 android.R.layout.simple_list_item_1)
-        listView.setOnItemClickListener { _, _, i, _ -> launchActivity(i) }
+        listView.setOnItemClickListener { _, _, i, _ -> launchActivity(position = i) }
 
         Log.d(TAG, "app name: ${resourceData.appName}")
     }

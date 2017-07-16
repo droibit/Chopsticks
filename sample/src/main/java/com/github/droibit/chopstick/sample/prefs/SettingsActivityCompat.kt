@@ -11,6 +11,7 @@ import com.example.android.supportv7.app.AppCompatPreferenceActivity
 import com.github.droibit.chopstick.bindPreference
 import com.github.droibit.chopstick.sample.R
 
+@Suppress("DEPRECATION")
 class SettingsActivityCompat : AppCompatPreferenceActivity() {
 
     companion object {
