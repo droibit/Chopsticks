@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import com.github.droibit.chopstick.bindView
+import com.github.droibit.chopstick.view.bindView
 import com.github.droibit.chopstick.sample.R
 
 class ViewListActivity : AppCompatActivity() {

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import com.github.droibit.chopstick.bindView
+import com.github.droibit.chopstick.view.bindView
 import com.github.droibit.chopstick.sample.prefs.PrefsListActivity
 import com.github.droibit.chopstick.sample.view.ViewListActivity
 import com.github.droibit.chopstick.sample.res.ResourceData

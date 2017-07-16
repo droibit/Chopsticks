@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.github.droibit.chopstick.bindView
+import com.github.droibit.chopstick.view.bindView
 import com.github.droibit.chopstick.resource.bindString
 import com.github.droibit.chopstick.sample.R
 

@@ -1,4 +1,4 @@
-package com.github.droibit.chopstick
+package com.github.droibit.chopstick.view
 
 import android.app.Activity
 import android.support.annotation.IdRes

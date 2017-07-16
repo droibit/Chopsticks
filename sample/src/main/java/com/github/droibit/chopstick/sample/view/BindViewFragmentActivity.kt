@@ -11,8 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.github.droibit.chopstick.Binder
-import com.github.droibit.chopstick.SupportFragmentBinder
+import com.github.droibit.chopstick.view.Binder
+import com.github.droibit.chopstick.view.SupportFragmentBinder
 import com.github.droibit.chopstick.sample.R
 
 class BindViewFragmentActivity : AppCompatActivity() {
