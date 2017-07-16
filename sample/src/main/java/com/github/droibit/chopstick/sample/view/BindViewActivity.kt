@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.github.droibit.chopstick.bindView
+import com.github.droibit.chopstick.resource.bindString
 import com.github.droibit.chopstick.sample.R
 
 class BindViewActivity : AppCompatActivity() {
@@ -18,14 +19,16 @@ class BindViewActivity : AppCompatActivity() {
         fun makeIntent(context: Context) = Intent(context, BindViewActivity::class.java)
     }
 
-    val textView: TextView by bindView(android.R.id.text1)
-    val button: Button by bindView(android.R.id.button1)
+    private val textView: TextView by bindView(android.R.id.text1)
+    private val button: Button by bindView(android.R.id.button1)
+
+    private val activityText: String by bindString(R.string.bind_activity_text)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bind_view)
 
-        textView.text = getString(R.string.bind_activity_text)
+        textView.text = activityText
         button.setOnClickListener {
             Toast.makeText(this@BindViewActivity, "Hello, bindView", Toast.LENGTH_SHORT).show()
         }

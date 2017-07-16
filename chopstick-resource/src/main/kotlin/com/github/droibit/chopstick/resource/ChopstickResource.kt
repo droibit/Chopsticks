@@ -1,4 +1,4 @@
-package com.github.droibit.chopstick
+package com.github.droibit.chopstick.resource
 
 import android.app.Activity
 import android.support.annotation.*

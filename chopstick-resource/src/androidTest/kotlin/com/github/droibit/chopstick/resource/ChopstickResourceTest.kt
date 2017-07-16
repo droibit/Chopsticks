@@ -1,4 +1,4 @@
-package com.github.droibit.chopstick
+package com.github.droibit.chopstick.resource
 
 import android.content.Context
 import android.graphics.drawable.Drawable
