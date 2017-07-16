@@ -105,10 +105,10 @@ repositories {
 }
 
 dependencies {
-    compile "com.github.droibit.chopsticks:chopstick-view:0.7.0"
-    compile "com.github.droibit.chopsticks:chopstick-resource:0.7.0"
+    compile "com.github.droibit.chopsticks:chopstick-view:0.8.0"
+    compile "com.github.droibit.chopsticks:chopstick-resource:0.8.0"
     // If 'support-preference' is not required, to exclude 'preference-v7' and 'preference-v14'.
-    compile "com.github.droibit.chopsticks:chopstick-preference:0.7.0"
+    compile "com.github.droibit.chopsticks:chopstick-preference:0.8.0"
 }
 ```
 
