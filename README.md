@@ -138,15 +138,15 @@ repositories {
 
 dependencies {
     // If you do not need `recyclerview-v7`, you can exclude.
-    compile "com.github.droibit.chopsticks:chopstick-view:0.9.0"
-    compile "com.github.droibit.chopsticks:chopstick-resource:0.9.0"
+    compile "com.github.droibit.chopsticks:chopstick-view:0.9.1"
+    compile "com.github.droibit.chopsticks:chopstick-resource:0.9.1"
 
     // If you do not need 'preference-v7' and 'preference-v14', you can exclude.
-    compile "com.github.droibit.chopsticks:chopstick-preference:0.8.0"
+    compile "com.github.droibit.chopsticks:chopstick-preference:0.9.1"
 }
 ```
 
-This library is dependent on Kotlin `1.1.3-2`.
+This library is dependent on Kotlin `1.1.4-3`.
 
 ## License
 
