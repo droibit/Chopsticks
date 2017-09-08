@@ -138,11 +138,11 @@ repositories {
 
 dependencies {
     // If you do not need `recyclerview-v7`, you can exclude.
-    compile "com.github.droibit.chopsticks:chopstick-view:0.9.1"
-    compile "com.github.droibit.chopsticks:chopstick-resource:0.9.1"
+    compile "com.github.droibit.chopsticks:chopstick-view:0.9.1-2"
+    compile "com.github.droibit.chopsticks:chopstick-resource:0.9.1-2"
 
     // If you do not need 'preference-v7' and 'preference-v14', you can exclude.
-    compile "com.github.droibit.chopsticks:chopstick-preference:0.9.1"
+    compile "com.github.droibit.chopsticks:chopstick-preference:0.9.1-2"
 }
 ```
 
