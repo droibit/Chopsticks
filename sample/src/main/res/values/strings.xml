@@ -31,6 +31,7 @@
     <!-- Preferences -->
 
     <string name="inline_preferences">Inline Preferences</string>
+    <string name="title_preference">Preference</string>
     <string name="key_checkbox_preference">checkbox_preference</string>
     <string name="title_checkbox_preference">Checkbox</string>
     <string name="summary_checkbox_preference">Checkbox Summary</string>

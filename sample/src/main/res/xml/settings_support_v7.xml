@@ -4,6 +4,10 @@
     <PreferenceCategory
         android:title="@string/inline_preferences">
 
+        <Preference
+            android:key="preference"
+            android:title="@string/title_preference" />
+
         <CheckBoxPreference
             android:key="checkbox_preference"
             android:title="@string/title_checkbox_preference"
