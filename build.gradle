@@ -2,8 +2,8 @@
 
 buildscript {
     ext {
-        kotlinVersion = '1.1.4-3'
         supportLibraryVersion = '26.0.2'
+        kotlinVersion = '1.1.61'
         supportTestRunnerVersion = '1.0.1'
         junitVersion = '4.1.2'
     }
