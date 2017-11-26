@@ -3,10 +3,6 @@ language: android
 jdk:
   - oraclejdk8
 
-env:
-  global:
-    - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
-
 android:
   components:
     - platform-tools
@@ -14,7 +10,7 @@ android:
 
 before_install:
   - mkdir "$ANDROID_HOME/licenses" || true
-  - echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+  - echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > "$ANDROID_HOME/licenses/android-sdk-license"
   - sdkmanager tools
   - sdkmanager "system-images;android-18;default;armeabi-v7a"
   - echo no | avdmanager create avd --force -n test -k "system-images;android-18;default;armeabi-v7a"
@@ -24,7 +20,7 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82
 
-script: ./gradlew check connectedCheck --info
+script: ./gradlew connectedCheck
 
 notifications:
   email: false
