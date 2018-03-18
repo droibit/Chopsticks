@@ -7,5 +7,5 @@ import com.github.droibit.chopstick.sample.R
 
 class ResourceData(context: Context) : Binder by ResourceBinder(context) {
 
-    val appName: String by bindString(R.string.app_name)
+  val appName: String by bindString(R.string.app_name)
 }

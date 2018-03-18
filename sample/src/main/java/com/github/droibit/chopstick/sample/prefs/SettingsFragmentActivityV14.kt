@@ -9,17 +9,19 @@ import com.github.droibit.chopstick.sample.prefs.fragment.SettingsFragmentV14
 
 class SettingsFragmentActivityV14 : AppCompatActivity() {
 
-    companion object {
-        @JvmStatic
-        fun makeIntent(context: Context) = Intent(context, SettingsFragmentActivityV14::class.java)
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_settings_fragment)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings_fragment)
-
-        fragmentManager.beginTransaction()
-                .replace(android.R.id.content, SettingsFragmentV14())
-                .commit()
+    if (savedInstanceState == null) {
+      fragmentManager.beginTransaction()
+          .replace(android.R.id.content, SettingsFragmentV14())
+          .commit()
     }
+  }
+
+  companion object {
+    @JvmStatic
+    fun makeIntent(context: Context) = Intent(context, SettingsFragmentActivityV14::class.java)
+  }
 }
