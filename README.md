@@ -67,6 +67,7 @@ class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentViewBind
 Resource injection to support the following classes.
 
 * Activity
+* Fragment
 * SupportFragment
 * ViewHolder
 * View
@@ -138,11 +139,11 @@ repositories {
 
 dependencies {
     // If you do not need `recyclerview-v7`, you can exclude.
-    compile "com.github.droibit.chopsticks:chopstick-view:0.10.0"
-    compile "com.github.droibit.chopsticks:chopstick-resource:0.10.0"
+    implementation "com.github.droibit.chopsticks:chopstick-view:0.11.0"
+    implementation "com.github.droibit.chopsticks:chopstick-resource:0.11.0"
 
     // If you do not need 'preference-v7' and 'preference-v14', you can exclude.
-    compile "com.github.droibit.chopsticks:chopstick-preference:0.10.0"
+    implementation "com.github.droibit.chopsticks:chopstick-preference:0.11.0"
 }
 ```
 
