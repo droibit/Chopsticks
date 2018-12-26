@@ -9,23 +9,24 @@ View, resource and preference injection library like [Kotter Knife](https://gith
 View injection to support the following classes.
 
 * Activity
-* SupportFragment
-* ViewHolder
+* Fragment
+* Fragment(androidx)
+* RecyclerView.ViewHolder(androidx)
 * View
 
 ```kotlin
 class BindViewActivity : AppCompatActivity() {
 
-    private val button: Button by bindView(android.R.id.button1)
+  private val button: Button by bindView(android.R.id.button1)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bind_view)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_bind_view)
 
-        button.setOnClickListener {
-            Toast.makeText(this@BindViewActivity, "Hello, bindView", Toast.LENGTH_SHORT).show()
-        }
+    button.setOnClickListener {
+      Toast.makeText(this@BindViewActivity, "Hello, bindView", Toast.LENGTH_SHORT).show()
     }
+  }
 }
 ```
 And, it is also support unbind view.  
@@ -34,31 +35,31 @@ And, it is also support unbind view.
 // e.g. SupportFragment
 class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentViewBinder() {
 
-    private val textView: TextView by bindView(android.R.id.text1)
-    private val button: Button by bindView(android.R.id.button1)
+  private val textView: TextView by bindView(android.R.id.text1)
+  private val button: Button by bindView(android.R.id.button1)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        retainInstance = true
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    retainInstance = true
+  }
+
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    return inflater.inflate(R.layout.fragment_bind_view, container, false)
+  }
+
+  override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    textView.text = getString(R.string.bind_fragment_text)
+    button.setOnClickListener {
+      Toast.makeText(context, "Hello, bindView", Toast.LENGTH_SHORT).show()
     }
+  }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_bind_view, container, false)
-    }
-
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        textView.text = getString(R.string.bind_fragment_text)
-        button.setOnClickListener {
-            Toast.makeText(context, "Hello, bindView", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    override fun onDestroyView() {
-        unbindViews()
-        super.onDestroyView()
-    }
+  override fun onDestroyView() {
+    unbindViews()
+    super.onDestroyView()
+  }
 }
 ```
 
@@ -68,24 +69,24 @@ Resource injection to support the following classes.
 
 * Activity
 * Fragment
-* SupportFragment
-* ViewHolder
+* Fragment(androidx)
+* RecyclerView.ViewHolder(androidx)
 * View
 
 ```kotlin
 class BindViewActivity : AppCompatActivity() {
 
-    private val button: Button by bindView(android.R.id.button1)
-    private val toastMessage: String by bindString(R.string.toast_message)
+  private val button: Button by bindView(android.R.id.button1)
+  private val toastMessage: String by bindString(R.string.toast_message)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bind_view)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_bind_view)
 
-        button.setOnClickListener {
-            Toast.makeText(this@BindViewActivity, toastMessage, Toast.LENGTH_SHORT).show()
-        }
+    button.setOnClickListener {
+      Toast.makeText(this@BindViewActivity, toastMessage, Toast.LENGTH_SHORT).show()
     }
+  }
 }
 ```
 
@@ -94,7 +95,7 @@ Also support class that does not have context.
 ```kotlin
 class Resources(context: Context) : Binder by ResourceBinder(context) {
 
-    val toastMessage: String by bindString(R.string.toast_message)
+  val toastMessage: String by bindString(R.string.toast_message)
 }
 ```
 
@@ -104,28 +105,27 @@ Preference injection to support the following classes.
 
 * PreferenceActivity
 * PreferenceFragment
-* PreferenceFragmentCompat(support-preference-v7)
-* PreferenceFragment(support-preference-v14)
+* PreferenceFragmentCompat(androidx)
 
 ```kotlin
-// e.g. PreferenceFragment
+// e.g. PreferenceFragmentCompat
 class SettingsFragment: PreferenceFragmentCompat() {
 
-    // String resource is Preference key.
-    private val checkboxPref: CheckBoxPreference by bindPreference(R.string.key_checkbox_preference)
-    // String literal is Preference key.
-    private val switchPref: SwitchPreference by bindPreference("switch_preference")
+  // String resource is Preference key.
+  private val checkboxPref: CheckBoxPreference by bindPreference(R.string.key_checkbox_preference)
+  // String literal is Preference key.
+  private val switchPref: SwitchPreference by bindPreference("switch_preference")
 
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        addPreferencesFromResource(R.xml.settings)
-    }
+  override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+    addPreferencesFromResource(R.xml.settings)
+  }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+  override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
 
-        checkboxPref.title = "Edited: ${checkboxPref.title}"
-        switchPref.title = "Edited: ${switchPref.title}"
-    }
+    checkboxPref.title = "Edited: ${checkboxPref.title}"
+    switchPref.title = "Edited: ${switchPref.title}"
+  }
 }
 ```
 ## Download
@@ -134,20 +134,20 @@ Add the following code to build.gradle.
 
 ```
 repositories {
-    maven { url "https://jitpack.io" }
+  maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    // If you do not need `recyclerview-v7`, you can exclude.
-    implementation "com.github.droibit.chopsticks:chopstick-view:0.11.0"
-    implementation "com.github.droibit.chopsticks:chopstick-resource:0.11.0"
+  // If you do not need `androidx.recyclerview:recyclerview`, you can exclude.
+  implementation "com.github.droibit.chopsticks:chopstick-view:1.0.0-beta01"
+  implementation "com.github.droibit.chopsticks:chopstick-resource:1.0.0-beta01"
 
-    // If you do not need 'preference-v7' and 'preference-v14', you can exclude.
-    implementation "com.github.droibit.chopsticks:chopstick-preference:0.11.0"
+  // If you do not need `androidx.preference:preference`, you can exclude.
+  implementation "com.github.droibit.chopsticks:chopstick-preference:1.0.0-beta01"
 }
 ```
 
-This library is dependent on Kotlin `1.2.30`.
+This library is dependent on Kotlin v`1.3.11`.
 
 ## License
 
