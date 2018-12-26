@@ -10,6 +10,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
+import kotlin.LazyThreadSafetyMode.NONE
 
 interface Binder {
 
@@ -35,23 +36,26 @@ interface Binder {
 class ResourceBinder(private val context: Context) : Binder {
 
   override fun bindDrawable(@DrawableRes resId: Int) =
-    lazy { requireNotNull(ContextCompat.getDrawable(context, resId)) }
+    lazy(NONE) { requireNotNull(ContextCompat.getDrawable(context, resId)) }
 
-  override fun bindString(@StringRes resId: Int) = lazy { context.getString(resId) }
+  override fun bindString(@StringRes resId: Int) = lazy(NONE) { context.getString(resId) }
 
-  override fun bindColor(@ColorRes resId: Int) = lazy { ContextCompat.getColor(context, resId) }
+  override fun bindColor(@ColorRes resId: Int) =
+    lazy(NONE) { ContextCompat.getColor(context, resId) }
 
-  override fun bindBoolean(@BoolRes resId: Int) = lazy { context.resources.getBoolean(resId) }
+  override fun bindBoolean(@BoolRes resId: Int) = lazy(NONE) { context.resources.getBoolean(resId) }
 
-  override fun bindInt(@IntegerRes resId: Int) = lazy { context.resources.getInteger(resId) }
+  override fun bindInt(@IntegerRes resId: Int) = lazy(NONE) { context.resources.getInteger(resId) }
 
   override fun bindStringArray(@ArrayRes resId: Int) =
     lazy { context.resources.getStringArray(resId) }
 
-  override fun bindIntArray(@ArrayRes resId: Int) = lazy { context.resources.getIntArray(resId) }
+  override fun bindIntArray(@ArrayRes resId: Int) =
+    lazy(NONE) { context.resources.getIntArray(resId) }
 
-  override fun bindDimension(@DimenRes resId: Int) = lazy { context.resources.getDimension(resId) }
+  override fun bindDimension(@DimenRes resId: Int) =
+    lazy(NONE) { context.resources.getDimension(resId) }
 
   override fun bindDimensionPixel(@DimenRes resId: Int) =
-    lazy { context.resources.getDimensionPixelSize(resId) }
+    lazy(NONE) { context.resources.getDimensionPixelSize(resId) }
 }

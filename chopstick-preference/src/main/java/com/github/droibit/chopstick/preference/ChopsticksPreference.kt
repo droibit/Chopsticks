@@ -5,17 +5,11 @@ import android.preference.PreferenceActivity
 import android.preference.PreferenceFragment
 import androidx.annotation.StringRes
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.Preference as PreferenceV7
+import kotlin.LazyThreadSafetyMode.NONE
+import androidx.preference.Preference as PreferenceCompat
 
-fun <P : PreferenceV7> PreferenceFragmentCompat.bindPreference(@StringRes resId: Int): Lazy<P> =
-  requireV7 { findPreference(getString(resId)) }
-
-fun <P : PreferenceV7> PreferenceFragmentCompat.bindPreference(key: String): Lazy<P> =
-  requireV7 { findPreference(key) }
-
-@Suppress("UNCHECKED_CAST")
-private inline fun <P : PreferenceV7> requireV7(crossinline finder: () -> PreferenceV7?) =
-  lazy { requireNotNull(finder()) as P }
+fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(@StringRes resId: Int): Lazy<P> =
+  requiredCompat { findPreference(getString(resId)) }
 
 @Suppress("DEPRECATION")
 @Deprecated(
@@ -24,7 +18,10 @@ private inline fun <P : PreferenceV7> requireV7(crossinline finder: () -> Prefer
     level = DeprecationLevel.WARNING
 )
 fun <P : Preference> PreferenceActivity.bindPreference(@StringRes resId: Int): Lazy<P> =
-  require { findPreference(getString(resId)) }
+  required { findPreference(getString(resId)) }
+
+fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(key: String): Lazy<P> =
+  requiredCompat { findPreference(key) }
 
 @Suppress("DEPRECATION")
 @Deprecated(
@@ -33,14 +30,18 @@ fun <P : Preference> PreferenceActivity.bindPreference(@StringRes resId: Int): L
     level = DeprecationLevel.WARNING
 )
 fun <P : Preference> PreferenceActivity.bindPreference(key: String): Lazy<P> =
-  require { findPreference(key) }
+  required { findPreference(key) }
 
 fun <P : Preference> PreferenceFragment.bindPreference(@StringRes resId: Int): Lazy<P> =
-  require { findPreference(getString(resId)) }
+  required { findPreference(getString(resId)) }
 
 fun <P : Preference> PreferenceFragment.bindPreference(key: String): Lazy<P> =
-  require { findPreference(key) }
+  required { findPreference(key) }
 
 @Suppress("UNCHECKED_CAST")
-private inline fun <P : Preference> require(crossinline finder: () -> Preference?) =
-  lazy { requireNotNull(finder()) as P }
+private inline fun <P : Preference> required(crossinline finder: () -> Preference?): Lazy<P> =
+  lazy(NONE) { requireNotNull(finder()) as P }
+
+@Suppress("UNCHECKED_CAST")
+private inline fun <P : PreferenceCompat> requiredCompat(crossinline finder: () -> PreferenceCompat?) =
+  lazy(NONE) { requireNotNull(finder()) as P }

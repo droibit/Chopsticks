@@ -85,23 +85,6 @@ class ChopsticksViewTest {
     }
   }
 
-  fun test_findView() {
-    class TestLayout(context: Context) : FrameLayout(context) {
-      init {
-        addView(makeView(id = 0))
-        addView(makeTextView(id = 1))
-      }
-    }
-
-    val layout = TestLayout(context)
-
-    val v1: View = layout.findView(id = 0)
-    assertNotNull(v1)
-
-    val v2: TextView = layout.findView(id = 1)
-    assertNotNull(v2)
-  }
-
   private fun makeView(id: Int) = View(context).apply { setId(id) }
 
   private fun makeTextView(id: Int) = TextView(context).apply { setId(id) }
