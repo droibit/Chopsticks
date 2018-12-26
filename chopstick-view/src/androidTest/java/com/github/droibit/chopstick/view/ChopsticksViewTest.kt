@@ -1,11 +1,11 @@
 package com.github.droibit.chopstick.view
 
 import android.content.Context
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Test
@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ChopsticksViewTest {
 
-  private val context = InstrumentationRegistry.getContext()
+  private val context: Context = ApplicationProvider.getApplicationContext()
 
   @Test
   fun bindView() {

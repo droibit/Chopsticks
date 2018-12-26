@@ -1,16 +1,16 @@
 package com.github.droibit.chopstick.sample.prefs.fragment
 
 import android.os.Bundle
-import android.support.v7.preference.CheckBoxPreference
-import android.support.v7.preference.EditTextPreference
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceFragmentCompat
-import android.support.v7.preference.SwitchPreferenceCompat
+import androidx.preference.CheckBoxPreference
+import androidx.preference.EditTextPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreferenceCompat
 import android.view.View
 import com.github.droibit.chopstick.preference.bindPreference
 import com.github.droibit.chopstick.sample.R
 
-class SettingsFragmentV7 : PreferenceFragmentCompat() {
+class SettingsFragmentCompat : PreferenceFragmentCompat() {
 
   private val checkboxPref: CheckBoxPreference by bindPreference(R.string.key_checkbox_preference)
   private val switchPref: SwitchPreferenceCompat by bindPreference("switch_preference")
@@ -21,7 +21,7 @@ class SettingsFragmentV7 : PreferenceFragmentCompat() {
     savedInstanceState: Bundle?,
     rootKey: String?
   ) {
-    addPreferencesFromResource(R.xml.settings_support_v7)
+    addPreferencesFromResource(R.xml.settings_androidx)
   }
 
   override fun onViewCreated(

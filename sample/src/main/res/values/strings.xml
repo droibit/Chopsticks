@@ -17,8 +17,7 @@
     <item>Preference Activity</item>
     <item>AppCompat Preference Activity</item>
     <item>Preference Fragment</item>
-    <item>Preference Fragment v7</item>
-    <item>Preference Fragment v14</item>
+    <item>Preference Fragment Compat</item>
   </string-array>
 
   <!-- Views -->

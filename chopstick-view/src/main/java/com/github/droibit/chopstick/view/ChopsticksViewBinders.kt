@@ -1,12 +1,12 @@
 package com.github.droibit.chopstick.view
 
 import android.app.Activity
-import android.support.annotation.IdRes
-import android.support.v7.widget.RecyclerView.ViewHolder
+import androidx.annotation.IdRes
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import android.util.SparseArray
 import android.view.View
 
-import android.support.v4.app.Fragment as SupportFragment
+import androidx.fragment.app.Fragment as SupportFragment
 
 private class UnbindableLazy<out T : View>(
   @IdRes private val id: Int,

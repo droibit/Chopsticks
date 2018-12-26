@@ -11,7 +11,7 @@ android {
     versionCode rootProject.ext.versionCode
     versionName rootProject.ext.versionName
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
   sourceSets {
@@ -31,12 +31,13 @@ android {
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-  implementation "com.android.support:support-annotations:$supportLibraryVersion"
-  implementation "com.android.support:support-fragment:$supportLibraryVersion"
-  implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+  implementation "androidx.annotation:annotation:$androidx.annotationVersion"
+  api "androidx.fragment:fragment:$androidx.fragmentVersion"
+  api "androidx.recyclerview:recyclerview:$androidx.recyclerViewVersion"
 
-  androidTestImplementation "com.android.support.test:runner:$supportTestRunnerVersion"
-  androidTestImplementation "com.android.support:support-annotations:$supportLibraryVersion"
+  androidTestImplementation "androidx.annotation:annotation:$androidx.annotationVersion"
+  androidTestImplementation "androidx.test.ext:junit:$androidx.test.junitVersion"
+  androidTestImplementation "androidx.test:runner:$androidx.test.runnerVersion"
 }
 
 // build a jar with source files

@@ -34,8 +34,7 @@ dependencies {
   implementation project(':chopstick-resource')
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-  implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
-  implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
-  implementation "com.android.support:preference-v14:$supportLibraryVersion"
+  implementation "androidx.annotation:annotation:$androidx.annotation"
+  implementation 'androidx.appcompat:appcompat:1.0.0'
 }
 

@@ -3,8 +3,8 @@ package com.github.droibit.chopstick.sample.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +35,7 @@ class BindViewFragmentActivity : AppCompatActivity() {
   }
 }
 
-class BindViewFragment : Fragment(), Binder<Fragment> by SupportFragmentViewBinder() {
+class BindViewFragment : androidx.fragment.app.Fragment(), Binder<androidx.fragment.app.Fragment> by SupportFragmentViewBinder() {
 
   private val textView: TextView by bindView(android.R.id.text1)
   private val button: Button by bindView(android.R.id.button1)

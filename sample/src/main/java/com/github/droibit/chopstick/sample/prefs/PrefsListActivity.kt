@@ -3,7 +3,7 @@ package com.github.droibit.chopstick.sample.prefs
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.github.droibit.chopstick.sample.R
@@ -29,8 +29,7 @@ class PrefsListActivity : AppCompatActivity() {
       PREFS_ACTIVITY -> SettingsActivity.makeIntent(this)
       PREFS_ACTIVITY_COMPAT -> SettingsActivityCompat.makeIntent(this)
       PREFS_FRAGMENT_ACTIVITY -> SettingsFragmentActivity.makeIntent(this)
-      PREFS_SUPPORT_V7_ACTIVITY -> SettingsFragmentActivityV7.makeIntent(this)
-      PREFS_SUPPORT_V14_ACTIVITY -> SettingsFragmentActivityV14.makeIntent(this)
+      PREFS_FRAGMENT_COMPAT_ACTIVITY -> SettingsFragmentCompatActivity.makeIntent(this)
       else -> error("Invalid position: $position")
     }
     startActivity(intent)
@@ -40,11 +39,9 @@ class PrefsListActivity : AppCompatActivity() {
     private const val PREFS_ACTIVITY = 0
     private const val PREFS_ACTIVITY_COMPAT = 1
     private const val PREFS_FRAGMENT_ACTIVITY = 2
-    private const val PREFS_SUPPORT_V7_ACTIVITY = 3
-    private const val PREFS_SUPPORT_V14_ACTIVITY = 4
+    private const val PREFS_FRAGMENT_COMPAT_ACTIVITY = 3
 
     @JvmStatic
     fun makeIntent(context: Context) = Intent(context, PrefsListActivity::class.java)
   }
-
 }

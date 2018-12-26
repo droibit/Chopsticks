@@ -3,7 +3,7 @@ package com.github.droibit.chopstick.sample.prefs
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.github.droibit.chopstick.sample.R
 import com.github.droibit.chopstick.sample.prefs.fragment.SettingsFragment
 

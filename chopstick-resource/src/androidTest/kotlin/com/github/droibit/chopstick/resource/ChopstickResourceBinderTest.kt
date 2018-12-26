@@ -2,9 +2,9 @@ package com.github.droibit.chopstick.resource
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.droibit.chopstick.resource.test.R
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ChopstickResourceBinderTest {
 
-  private val context = InstrumentationRegistry.getContext()
+  private val context: Context = ApplicationProvider.getApplicationContext()
 
   @Test
   fun bindDrawable() {

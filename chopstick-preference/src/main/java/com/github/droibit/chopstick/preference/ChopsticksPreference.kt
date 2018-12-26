@@ -3,21 +3,14 @@ package com.github.droibit.chopstick.preference
 import android.preference.Preference
 import android.preference.PreferenceActivity
 import android.preference.PreferenceFragment
-import android.support.annotation.StringRes
-import android.support.v7.preference.PreferenceFragmentCompat
-import android.support.v14.preference.PreferenceFragment as PreferenceFragmentV14
-import android.support.v7.preference.Preference as PreferenceV7
+import androidx.annotation.StringRes
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.Preference as PreferenceV7
 
 fun <P : PreferenceV7> PreferenceFragmentCompat.bindPreference(@StringRes resId: Int): Lazy<P> =
   requireV7 { findPreference(getString(resId)) }
 
 fun <P : PreferenceV7> PreferenceFragmentCompat.bindPreference(key: String): Lazy<P> =
-  requireV7 { findPreference(key) }
-
-fun <P : PreferenceV7> PreferenceFragmentV14.bindPreference(@StringRes resId: Int): Lazy<P> =
-  requireV7 { findPreference(getString(resId)) }
-
-fun <P : PreferenceV7> PreferenceFragmentV14.bindPreference(key: String): Lazy<P> =
   requireV7 { findPreference(key) }
 
 @Suppress("UNCHECKED_CAST")
