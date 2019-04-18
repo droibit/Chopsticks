@@ -30,14 +30,13 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
   implementation "androidx.annotation:annotation:$androidx.annotationVersion"
   api "androidx.preference:preference:1.0.0"
-//  api "androidx.legacy:legacy-preference-v14:1.0.0"
 }
 
 
 // build a jar with source files
 task sourcesJar(type: Jar) {
+  archiveClassifier.set('sources')
   from android.sourceSets.main.java.srcDirs
-  classifier = 'sources'
 }
 
 artifacts {
