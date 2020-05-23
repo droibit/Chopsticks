@@ -86,6 +86,7 @@ class ChopsticksViewBindersTest {
     }
   }
 
+  @Suppress("LocalVariableName")
   @Test
   fun unbindViews() {
     class TestLayout(context: Context) : FrameLayout(context), Binder<View> by ViewBinder() {
