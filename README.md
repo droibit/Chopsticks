@@ -132,22 +132,20 @@ class SettingsFragment: PreferenceFragmentCompat() {
 
 Add the following code to build.gradle.
 
-```
+```gradle
 repositories {
   maven { url "https://jitpack.io" }
 }
 
 dependencies {
   // If you do not need `androidx.recyclerview:recyclerview`, you can exclude.
-  implementation "com.github.droibit.chopsticks:chopstick-view:1.0.0-beta01"
-  implementation "com.github.droibit.chopsticks:chopstick-resource:1.0.0-beta01"
+  implementation "com.github.droibit.chopsticks:chopstick-view:1.0.0"
+  implementation "com.github.droibit.chopsticks:chopstick-resource:1.0.0"
 
   // If you do not need `androidx.preference:preference`, you can exclude.
-  implementation "com.github.droibit.chopsticks:chopstick-preference:1.0.0-beta01"
+  implementation "com.github.droibit.chopsticks:chopstick-preference:1.0.0"
 }
 ```
-
-This library is dependent on Kotlin v`1.3.11`.
 
 ## License
 
