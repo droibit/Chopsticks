@@ -9,7 +9,7 @@ import kotlin.LazyThreadSafetyMode.NONE
 import androidx.preference.Preference as PreferenceCompat
 
 fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(@StringRes resId: Int): Lazy<P> =
-  requiredCompat { findPreference(getString(resId)) }
+    requiredCompat { findPreference(getString(resId)) }
 
 @Suppress("DEPRECATION")
 @Deprecated(
@@ -18,10 +18,10 @@ fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(@StringRes re
     level = DeprecationLevel.WARNING
 )
 fun <P : Preference> PreferenceActivity.bindPreference(@StringRes resId: Int): Lazy<P> =
-  required { findPreference(getString(resId)) }
+    required { findPreference(getString(resId)) }
 
 fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(key: String): Lazy<P> =
-  requiredCompat { findPreference(key) }
+    requiredCompat { findPreference(key) }
 
 @Suppress("DEPRECATION")
 @Deprecated(
@@ -30,18 +30,18 @@ fun <P : PreferenceCompat> PreferenceFragmentCompat.bindPreference(key: String):
     level = DeprecationLevel.WARNING
 )
 fun <P : Preference> PreferenceActivity.bindPreference(key: String): Lazy<P> =
-  required { findPreference(key) }
+    required { findPreference(key) }
 
 fun <P : Preference> PreferenceFragment.bindPreference(@StringRes resId: Int): Lazy<P> =
-  required { findPreference(getString(resId)) }
+    required { findPreference(getString(resId)) }
 
 fun <P : Preference> PreferenceFragment.bindPreference(key: String): Lazy<P> =
-  required { findPreference(key) }
+    required { findPreference(key) }
 
 @Suppress("UNCHECKED_CAST")
 private inline fun <P : Preference> required(crossinline finder: () -> Preference?): Lazy<P> =
-  lazy(NONE) { requireNotNull(finder()) as P }
+    lazy(NONE) { requireNotNull(finder()) as P }
 
 @Suppress("UNCHECKED_CAST")
 private inline fun <P : PreferenceCompat> requiredCompat(crossinline finder: () -> PreferenceCompat?) =
-  lazy(NONE) { requireNotNull(finder()) as P }
+    lazy(NONE) { requireNotNull(finder()) as P }

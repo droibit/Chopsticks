@@ -3,63 +3,63 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-  compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
-  defaultConfig {
-    minSdkVersion rootProject.ext.minSdkVersion
-    targetSdkVersion rootProject.ext.targetSdkVersion
-    versionCode rootProject.ext.versionCode
-    versionName rootProject.ext.versionName
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
-    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-  }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-  sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
-    androidTest.java.srcDirs += 'src/androidTest/kotlin'
-  }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
 
-  lintOptions {
-    abortOnError false
-  }
+    lintOptions {
+        abortOnError false
+    }
 
-  buildFeatures {
-    buildConfig = false
-  }
+    buildFeatures {
+        buildConfig = false
+    }
 }
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  implementation "androidx.annotation:annotation:$androidx.annotationVersion"
-  api "androidx.fragment:fragment:$androidx.fragmentVersion"
-  implementation "androidx.recyclerview:recyclerview:$androidx.recyclerViewVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "androidx.annotation:annotation:$androidx.annotationVersion"
+    api "androidx.fragment:fragment:$androidx.fragmentVersion"
+    implementation "androidx.recyclerview:recyclerview:$androidx.recyclerViewVersion"
 
-  androidTestImplementation "androidx.annotation:annotation:$androidx.annotationVersion"
-  androidTestImplementation "androidx.test.ext:junit:$androidx.test.junitVersion"
-  androidTestImplementation "androidx.test:runner:$androidx.test.runnerVersion"
+    androidTestImplementation "androidx.annotation:annotation:$androidx.annotationVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidx.test.junitVersion"
+    androidTestImplementation "androidx.test:runner:$androidx.test.runnerVersion"
 }
 
 // build a jar with source files
 task sourcesJar(type: Jar) {
-  archiveClassifier.set('sources')
-  from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
 }
 
 artifacts {
-  archives sourcesJar
+    archives sourcesJar
 }
 
 // To specify a license in the pom:
 install {
-  repositories.mavenInstaller {
-    pom.project {
-      licenses {
-        license {
-          name 'The Apache Software License, Version 2.0'
-          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          distribution 'repo'
+    repositories.mavenInstaller {
+        pom.project {
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
         }
-      }
     }
-  }
 }

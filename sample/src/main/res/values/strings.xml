@@ -1,83 +1,83 @@
 <resources>
-  <string name="app_name">Chopsticks Sample</string>
+    <string name="app_name">Chopsticks Sample</string>
 
-  <!-- Content List -->
+    <!-- Content List -->
 
-  <string-array name="main_list_items">
-    <item>View Binding</item>
-    <item>Preference Binding</item>
-  </string-array>
+    <string-array name="main_list_items">
+        <item>View Binding</item>
+        <item>Preference Binding</item>
+    </string-array>
 
-  <string-array name="view_list_items">
-    <item>Activity</item>
-    <item>Fragment(retain)</item>
-  </string-array>
+    <string-array name="view_list_items">
+        <item>Activity</item>
+        <item>Fragment(retain)</item>
+    </string-array>
 
-  <string-array name="prefs_list_items">
-    <item>Preference Activity</item>
-    <item>AppCompat Preference Activity</item>
-    <item>Preference Fragment</item>
-    <item>Preference Fragment Compat</item>
-  </string-array>
+    <string-array name="prefs_list_items">
+        <item>Preference Activity</item>
+        <item>AppCompat Preference Activity</item>
+        <item>Preference Fragment</item>
+        <item>Preference Fragment Compat</item>
+    </string-array>
 
-  <!-- Views -->
+    <!-- Views -->
 
-  <string name="bind_activity_text">Hello, bindView by Activity</string>
-  <string name="bind_activity_button_say_hello">Say Hello</string>
+    <string name="bind_activity_text">Hello, bindView by Activity</string>
+    <string name="bind_activity_button_say_hello">Say Hello</string>
 
-  <string name="bind_fragment_text">Hello, bindView by Fragment</string>
+    <string name="bind_fragment_text">Hello, bindView by Fragment</string>
 
-  <!-- Preferences -->
+    <!-- Preferences -->
 
-  <string name="inline_preferences">Inline Preferences</string>
-  <string name="title_preference">Preference</string>
-  <string name="key_checkbox_preference">checkbox_preference</string>
-  <string name="title_checkbox_preference">Checkbox</string>
-  <string name="summary_checkbox_preference">Checkbox Summary</string>
-  <string name="key_switch_preference">switch_preference</string>
-  <string name="title_switch_preference">Switch</string>
-  <string name="summary_switch_preference">Switch Summary</string>
+    <string name="inline_preferences">Inline Preferences</string>
+    <string name="title_preference">Preference</string>
+    <string name="key_checkbox_preference">checkbox_preference</string>
+    <string name="title_checkbox_preference">Checkbox</string>
+    <string name="summary_checkbox_preference">Checkbox Summary</string>
+    <string name="key_switch_preference">switch_preference</string>
+    <string name="title_switch_preference">Switch</string>
+    <string name="summary_switch_preference">Switch Summary</string>
 
-  <string name="dialog_based_preferences">Dialog Based Preferences</string>
-  <string name="key_edittext_preference">edittext_preference</string>
-  <string name="title_edittext_preference">Edit Text</string>
-  <string name="summary_edittext_preference">Edit Text Summary</string>
-  <string name="dialog_title_edittext_preference">Edit Text Dialog</string>
-  <string name="title_list_preference">List Preference</string>
-  <string name="summary_list_preference">List Summary</string>
-  <string name="dialog_title_list_preference">List Dialog</string>
-  <string name="title_multi_list_preference">Multi List Preference</string>
-  <string name="summary_multi_list_preference">Multi List Summary</string>
-  <string name="dialog_title_multi_list_preference">Multi List Dialog</string>
+    <string name="dialog_based_preferences">Dialog Based Preferences</string>
+    <string name="key_edittext_preference">edittext_preference</string>
+    <string name="title_edittext_preference">Edit Text</string>
+    <string name="summary_edittext_preference">Edit Text Summary</string>
+    <string name="dialog_title_edittext_preference">Edit Text Dialog</string>
+    <string name="title_list_preference">List Preference</string>
+    <string name="summary_list_preference">List Summary</string>
+    <string name="dialog_title_list_preference">List Dialog</string>
+    <string name="title_multi_list_preference">Multi List Preference</string>
+    <string name="summary_multi_list_preference">Multi List Summary</string>
+    <string name="dialog_title_multi_list_preference">Multi List Dialog</string>
 
-  <string name="launch_preferences">Launch Preferences</string>
-  <string name="title_screen_preference">Screen</string>
-  <string name="summary_screen_preference">Screen Summary</string>
-  <string name="title_next_screen_toggle_preference">Next Screen Toggle</string>
-  <string name="summary_next_screen_toggle_preference">Screen Toggle Summary</string>
-  <string name="title_intent_preference">Intent</string>
-  <string name="summary_intent_preference">Intent Summary</string>
+    <string name="launch_preferences">Launch Preferences</string>
+    <string name="title_screen_preference">Screen</string>
+    <string name="summary_screen_preference">Screen Summary</string>
+    <string name="title_next_screen_toggle_preference">Next Screen Toggle</string>
+    <string name="summary_next_screen_toggle_preference">Screen Toggle Summary</string>
+    <string name="title_intent_preference">Intent</string>
+    <string name="summary_intent_preference">Intent Summary</string>
 
-  <string name="preference_attributes">Preference Attributes</string>
-  <string name="title_parent_preference">Parent Checkbox</string>
-  <string name="summary_parent_preference">Parent Checkbox Summary</string>
-  <string name="title_child_preference">Child Checkbox</string>
-  <string name="summary_child_preference">Child Checkbox Summary</string>
-  <string name="title_activity_settings">SettingsActivity</string>
+    <string name="preference_attributes">Preference Attributes</string>
+    <string name="title_parent_preference">Parent Checkbox</string>
+    <string name="summary_parent_preference">Parent Checkbox Summary</string>
+    <string name="title_child_preference">Child Checkbox</string>
+    <string name="summary_child_preference">Child Checkbox Summary</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
-  <string-array name="entries_list_preference">
-    <item>Preferences 1</item>
-    <item>Preferences 2</item>
-    <item>Preferences 3</item>
-    <item>Preferences 4</item>
-    <item>Preferences 5</item>
-  </string-array>
+    <string-array name="entries_list_preference">
+        <item>Preferences 1</item>
+        <item>Preferences 2</item>
+        <item>Preferences 3</item>
+        <item>Preferences 4</item>
+        <item>Preferences 5</item>
+    </string-array>
 
-  <string-array name="entryvalues_list_preference">
-    <item>1</item>
-    <item>2</item>
-    <item>3</item>
-    <item>4</item>
-    <item>5</item>
-  </string-array>
+    <string-array name="entryvalues_list_preference">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>
