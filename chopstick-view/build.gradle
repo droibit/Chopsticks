@@ -29,9 +29,9 @@ android {
 }
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
   implementation "androidx.annotation:annotation:$androidx.annotationVersion"
-  api "androidx.fragment:fragment:$androidx.fragmentVersion"
+  implementation "androidx.fragment:fragment:$androidx.fragmentVersion"
   api "androidx.recyclerview:recyclerview:$androidx.recyclerViewVersion"
 
   androidTestImplementation "androidx.annotation:annotation:$androidx.annotationVersion"
