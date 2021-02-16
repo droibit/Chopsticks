@@ -6,11 +6,20 @@ local.properties
 *.ipr
 *.iws
 .idea/*
-!.idea/codeStyleSettings.xml
-!.idea/runConfigurations/*
+!.idea/runConfigurations/
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+
+# Android Studio files
+/captures
+.externalNativeBuild/
+projectFilesBackup/
+.cxx
 
 # Gradle files
-.gradle/
-build/
+/.gradle
+/build
 
-.DS_Store
+# Android app
+*.apk
+*.aab
