@@ -48,7 +48,7 @@ class ResourceBinder(private val context: Context) : Binder {
   override fun bindInt(@IntegerRes resId: Int) = lazy(NONE) { context.resources.getInteger(resId) }
 
   override fun bindStringArray(@ArrayRes resId: Int) =
-    lazy { context.resources.getStringArray(resId) }
+    lazy(NONE) { context.resources.getStringArray(resId) }
 
   override fun bindIntArray(@ArrayRes resId: Int) =
     lazy(NONE) { context.resources.getIntArray(resId) }
